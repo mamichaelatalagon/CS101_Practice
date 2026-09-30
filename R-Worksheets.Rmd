@@ -1,0 +1,117 @@
+---
+title: "Arithmetic Operations and data Types"
+author: "Ma. Michaela Talagon"
+date: "2026-09-30"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Part A — Arithmetic Operations
+```{r}
+a <- 17
+b <- 5
+sum <- a + b
+difference <- a - b
+product <- a * b
+quotient <- a / b
+
+sum
+difference
+product
+quotient
+
+remainder <- a %% b
+int_remainder <- a %/% b
+
+remainder
+int_remainder
+
+power <- 2^10
+power
+```
+
+Question #1: Run 17 / 5, 17 %% 5, and 17 %/% 5 side by side. In your own words, explain how these three results relate to each other mathematically.
+Answer #1: Normal divison returns a decimal output, while modulo returns the remainder, and integer division return the integer result of the operation.
+
+Question #2: Predict the output of 10 %% 3 and 10 %/% 3 before running the code. Were you correct? If not, explain what you misunderstood.
+Answer #2: Yes, 1 and 3 respectively
+
+## Part B — Basic Data Types: typeof(), class(), and mode()
+```{r}
+x <- 42
+y <- 42L  
+z <- "42"
+w <- TRUE
+v <- 3 + 2i
+
+typeof(x)
+typeof(y)
+typeof(z)
+typeof(w)
+typeof(v)
+
+class(x)
+class(y)
+class(z)
+class(w)
+class(v)
+
+mode(x)
+mode(y)
+mode(z)
+mode(w)
+mode(v)
+```
+
+Question #3): x <- 42 and y <- 42L look almost identical, but typeof(x) and typeof(y) give different answers. Explain the difference in your own words.
+Answer #3: the L suffix on y <- 42L forces an integer, giving a different type and class on x<-42
+
+Question #4: Is typeof() ever different from class() and from mode() for the same object? Look at your results above and explain any case where this happens (or, if you did not see one, explain what you would expect for a matrix or factor).
+Question #4: 
+
+## Part C — Type Conversion (20 min)
+```{r}
+num_string <- "123"
+
+as.numeric(num_string)
+typeof(num_string)
+class(num_string)
+mode(num_string)
+
+num <- c(0,1)
+as.logical(num)
+
+bad_string <- "hello123"
+as.numeric(bad_string)
+```
+
+Question #5: When you ran the conversion-fail chunk, R produced NA and a warning instead of stopping with an error.
+
+Why do you think R is designed to give a warning here rather than crashing the whole script?
+Answer: 
+
+What are the risks of this behavior if you don’t read your warnings?
+Answer: You will be stuck in your code
+
+Question #6: as.logical(0) and as.logical(1) convert to FALSE and TRUE.
+
+What do you think as.logical(2) and as.logical(-1)` will produce?
+Answer: 
+
+Test it, then explain the rule R seems to be following.
+Answer: 
+
+## Part D — Strings, paste(), and paste0()
+```{r}
+first_name <- "Juan"
+last_name <- "Dela Cruz"
+
+cat(first_name, last_name)
+
+paste(first_name, last_name)
+paste0(first_name, last_name)
+```
+
