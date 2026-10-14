@@ -464,6 +464,239 @@ numbers between 1 to 20 with values evenly spaced out by 5</li>
 <li><strong>Answer:</strong> length(vec_num) [1] 41</li>
 </ul>
 </div>
+<div id="part-b-subsetting-accessing-vectors" class="section level2">
+<h2>Part B — Subsetting (Accessing) Vectors</h2>
+<pre class="r"><code>grades &lt;- c(88, 92, 79, 95, 84)
+names(grades) &lt;- c(&quot;Math&quot;, &quot;Science&quot;, &quot;English&quot;, &quot;History&quot;, &quot;PE&quot;)
+
+# TODO: Access the 3rd element of grades using positional indexing
+grades [3]</code></pre>
+<pre><code>## English 
+##      79</code></pre>
+<pre class="r"><code># TODO: Access the 1st abd 4th element of grades using positional indexing
+grades[c(1, 4)]</code></pre>
+<pre><code>##    Math History 
+##      88      95</code></pre>
+<pre class="r"><code># TODO: Access &quot;Science&quot; and &quot;PE&quot; together using their names
+grades [c(&quot;Science&quot;, &quot;PE&quot;)]</code></pre>
+<pre><code>## Science      PE 
+##      92      84</code></pre>
+<pre class="r"><code># TODO: Return all elements of grades EXCEPT the 1st and 4th, using
+# negative indexing, e.g. grades[-c(...)]
+grades[-c(1, 4)]</code></pre>
+<pre><code>## Science English      PE 
+##      92      79      84</code></pre>
+<pre class="r"><code># TODO: Use a logical condition to return only the grades that are
+# greater than or equal to 85 (hint: grades[grades &gt;= 85])
+grades[grades &gt;= 85]</code></pre>
+<pre><code>##    Math Science History 
+##      88      92      95</code></pre>
+<p><strong>Question #5:</strong></p>
+<p>Negative indexing (grades[-1]) removes an element, while logical
+indexing (grades[grades &gt;= 85]) filters by a condition.</p>
+<p>Describe a real situation where you would need negative indexing, and
+a different situation where logical indexing would be the better
+tool.</p>
+<ul>
+<li><strong>Answer:</strong> Negative indexing would be applied on a
+situation where I don’t know what’s the value of the element but I know
+that it’s position is on the last part of the data. While, logical
+indexing would be applied to when filtering data based on specific
+condition rather than the position itself.</li>
+</ul>
+<p><strong>Question #6:</strong></p>
+<p>What happens if you run grades[10] (an index that doesn’t exist)? Run
+it, observe the result, and explain why R responds this way instead of
+throwing an error.</p>
+<ul>
+<li><strong>Answer:</strong> Running grades[10] throws an <NA> output
+rather than throwing an error to keep the program running instead of
+completely stopping the code to run</li>
+</ul>
+<p><strong>Question #7:</strong></p>
+<p>Print a vector with the integers between 1 and 100 that are not
+divisible by 3, 5 and 7 using filter option. Filter(function(i) { all(i
+%% c(3,5,7) != 0) }, seq(100)) Write the R code and its output.</p>
+<ul>
+<li><strong>Answer:</strong> vector1 &lt;- seq(1,100) result &lt;-
+Filter(function(i) { all(i %% c(3,5,7) != 0) }, seq(100)) result [1] 1 2
+4 8 11 13 16 17 19 22 23 26 29 31 [15] 32 34 37 38 41 43 44 46 47 52 53
+58 59 61 [29] 62 64 67 68 71 73 74 76 79 82 83 86 88 89 [43] 92 94
+97</li>
+</ul>
+</div>
+<div id="part-c-vector-operations-and-append" class="section level2">
+<h2>Part C — Vector Operations and append()</h2>
+<pre class="r"><code>x &lt;- c(1, 2, 3, 4)
+y &lt;- c(10, 20, 30, 40)
+
+# TODO: Add x and y element-wise, and print the result
+sum &lt;- x + y
+sum</code></pre>
+<pre><code>## [1] 11 22 33 44</code></pre>
+<pre class="r"><code># TODO: Multiply every element of x by 2
+multiply &lt;- x * 2
+multiply</code></pre>
+<pre><code>## [1] 2 4 6 8</code></pre>
+<pre class="r"><code>z &lt;- c(1, 2, 3, 4, 5, 6)
+short &lt;- c(1, 0)
+
+# TODO: Add z and short together and print the result. Run this even
+# though the vectors are different lengths -- observe what R does.
+add &lt;- z + short
+add</code></pre>
+<pre><code>## [1] 2 2 4 4 6 6</code></pre>
+<pre class="r"><code>fruits &lt;- c(&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;)
+
+# TODO: Use append() to add &quot;date&quot; to the end of fruits
+append(fruits, &quot;date&quot;)</code></pre>
+<pre><code>## [1] &quot;apple&quot;  &quot;banana&quot; &quot;cherry&quot; &quot;date&quot;</code></pre>
+<pre class="r"><code># TODO: Use append() with the &quot;after&quot; argument to insert &quot;kiwi&quot; between
+# &quot;apple&quot; and &quot;banana&quot; (i.e., after position 1)
+append(fruits, &quot;kiwi&quot;, after = 1)</code></pre>
+<pre><code>## [1] &quot;apple&quot;  &quot;kiwi&quot;   &quot;banana&quot; &quot;cherry&quot;</code></pre>
+<p><strong>Question #8:</strong></p>
+<p>In the vectors-recycling chunk, z has 6 elements and short has only
+2. R still produced an answer instead of an error.</p>
+<p>Explain, in your own words, what R’s “recycling rule” did to short to
+make the addition work.</p>
+<ul>
+<li><strong>Answer:</strong> The short matches the length of the z
+because it is longer by adding itself to every element on the z</li>
+</ul>
+<p><strong>Question #9:</strong> Now try adding z (length 6) to c(1, 0,
+1) (length 3) instead. Does it work cleanly?</p>
+<ul>
+<li><strong>Answer:</strong> Yes, because the length of the longer
+vector becomes a multiple of shorter vector.</li>
+</ul>
+<p>Then try adding z to c(1, 0, 1, 1) (length 4). Compare the warning
+(or lack of one) in each case, and explain what condition determines
+whether R recycles silently versus with a warning.</p>
+<ul>
+<li><strong>Answer:</strong> It is the contrast of the previous code
+because the length does not divide evenly since length 6 is not a
+multiple of 4 so R throws a warning message.</li>
+</ul>
+</div>
+<div id="part-d-lists-creating-and-subsetting" class="section level2">
+<h2>Part D — Lists: Creating and Subsetting</h2>
+<pre class="r"><code># TODO: Create a list called student with these named elements:
+# name = &quot;Maria Santos&quot;, age = 20, grades = c(88, 92, 79),
+# is_enrolled = TRUE
+student &lt;- list(name = &quot;Maria Santos&quot;, age = 20, grades = c(88, 92, 79), is_enrolled = TRUE)</code></pre>
+<pre class="r"><code># TODO: Access the &quot;grades&quot; element of student using single brackets
+# student[&quot;grades&quot;] -- then check its type with class()
+student[&quot;grades&quot;]</code></pre>
+<pre><code>## $grades
+## [1] 88 92 79</code></pre>
+<pre class="r"><code>class(student[grades])</code></pre>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<pre class="r"><code># TODO: Access the &quot;grades&quot; element of student using double brackets
+# student[[&quot;grades&quot;]] -- then check its type with class()
+student[[&quot;grades&quot;]]</code></pre>
+<pre><code>## [1] 88 92 79</code></pre>
+<pre class="r"><code>class(student[[&quot;grades&quot;]])</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="r"><code># TODO: Access the &quot;name&quot; element of student using the $ operator
+# student$name
+student$name</code></pre>
+<pre><code>## [1] &quot;Maria Santos&quot;</code></pre>
+<pre class="r"><code># TODO: From student, extract just the SECOND grade in the grades vector
+# in a single expression, e.g. student[[&quot;grades&quot;]][2] or student$grades[2]
+student[[&quot;grades&quot;]][2]</code></pre>
+<pre><code>## [1] 92</code></pre>
+<p><strong>Question #10:</strong></p>
+<p>student[“grades”] and student[[“grades”]] look similar but return
+objects of different classes.</p>
+<p>Run class() on each and explain the difference in what single-bracket
+[ ] versus double-bracket [[ ]] return from a list.</p>
+<ul>
+<li><strong>Answer:</strong> The single-bracket is what returns the list
+because it only checks the sub-list, while the double-bracket checks the
+actual data values on the list</li>
+</ul>
+<p><strong>Question #11:</strong></p>
+<p>Why do you think R makes a distinction between [ ] and [[ ]] for
+lists, but a vector only needs [ ]? Think about what a list can contain
+that a vector cannot.</p>
+<ul>
+<li><strong>Answer:</strong> Vectors hold elements of the same value,
+thus subsetting it with single-bracket gives back a smaller vector.
+However, list can contain large vectors and data frames, that’s why R
+needs to have distinction because a single bracket returns a smaller
+subset while double brackets checks thoroughly of what is the contents
+inside the the list.</li>
+</ul>
+</div>
+<div id="part-e-critical-thinking-challenge" class="section level2">
+<h2>Part E — Critical Thinking Challenge</h2>
+<pre class="r"><code>inventory &lt;- list(
+  item = c(&quot;Notebook&quot;, &quot;Pen&quot;, &quot;Eraser&quot;),
+  price = c(25.50, 10.00, 5.00),
+  in_stock = c(TRUE, TRUE, FALSE)
+)
+
+# TODO: Using what you learned in Parts B and D, print only the items
+# (from inventory$item) that are currently in stock (in_stock == TRUE)
+inventory$item[inventory$in_stock]</code></pre>
+<pre><code>## [1] &quot;Notebook&quot; &quot;Pen&quot;</code></pre>
+<pre class="r"><code># TODO: A new product &quot;Ruler&quot; priced at 15.00 and in stock (TRUE) needs
+# to be added to inventory. Use append() to add &quot;Ruler&quot; to
+# inventory$item, 15.00 to inventory$price, and TRUE to inventory$in_stock.
+# (You will need three separate append() calls, one per vector.)
+
+inventory$item &lt;- append(inventory$item, &quot;Ruler&quot;)
+inventory$item &lt;- append(inventory$price, 15.00)
+inventory$item &lt;- append(inventory$in_stock, TRUE)
+inventory</code></pre>
+<pre><code>## $item
+## [1]  TRUE  TRUE FALSE  TRUE
+## 
+## $price
+## [1] 25.5 10.0  5.0
+## 
+## $in_stock
+## [1]  TRUE  TRUE FALSE</code></pre>
+<p><strong>Question #12:</strong></p>
+<p>In challenge-1, you combined logical indexing on one vector
+(in_stock) to filter a different vector (item) inside the same list.
+Explain, step by step, why inventory<span class="math inline">\(item[inventory\)</span>in_stock] works even though
+item and in_stock are stored as separate elements of the list.</p>
+<ul>
+<li><strong>Answer:</strong> It worked because inventory<span class="math inline">\(item and inventory\)</span>in_stock are parallel
+vectors with matching positions and lengths. It evaluates first the
+inside statements and reads the logical values, then booleans are used
+to filter template over inventory$item. Since the positions are matched,
+it keeps the elements at index 1 and 2 and then 3 and 4.</li>
+</ul>
+<p><strong>Question #13:</strong></p>
+<p>Suppose a classmate stores related data as three separate,
+unconnected vectors (item_names, item_prices, item_stock) instead of
+grouping them into one list like inventory. What risks or bugs could
+this create as the dataset grows or gets reordered? Argue for or against
+using a list (or, later, a data frame) instead of separate vectors.</p>
+<ul>
+<li><strong>Answer:</strong> The risks it can make on the program could
+be that the structure of elements would be distorted because it only
+depend on the manual sorting alignment. If the sorting is forgotten, the
+alignment breaks instantly, and the program will map to the wrong items.
+To prevent this from happening, it should be grouped into a single list
+or data frames to guarantee that the structure is bounded together.</li>
+</ul>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<ul>
+<li>Vectors hold elements of the same value and data type, making them
+ideal for uniform mathematical calculation and sequences. While, list
+can contain large vectors and data frames, allowing bundles of multiple
+objects of different lengths and data types on the same object. When
+dealing with homogeneous dtaa of the same data type, a vector is
+suitable to use. List when there’s a divere group of data like data
+frames.</li>
+</ul>
+</div>
 
 
 
