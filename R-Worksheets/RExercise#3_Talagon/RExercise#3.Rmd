@@ -54,54 +54,54 @@ Set up a vector named age, consisting of 15, 28, 32, 36, 27, 18, 52, 39, 42, 29,
 - **Answer:** age <- c(15, 28, 32, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 12, 42, 53, 41, 51, 35, 24, 33, 8)
 
 How many data points?
+
 - **Answer:** 34
 
 Find the reciprocal of age?
+
 - **Answer:** 1/age
 
 Assign also new_age <- c(age, 0, age). What happens to new_age?
+
 - **Answer:** The numbers from age is printed then added with 0 then printed again. [1] 15 28 32 36 27 18 52 39 42 29 35 31 27 22 37 34 19 20 57 49 50 37 46 25 17 12 42 53 41 51 35 24 33
 [34]  8  0 15 28 32 36 27 18 52 39 42 29 35 31 27 22 37 34 19 20 57 49 50 37 46 25 17 12 42 53 41 51 35
 [67] 24 33  8
 
 d: Find the minimum and the maximum value of age.
+
 - **Answer:** Minimum age is 8, and the maximum age is 57
 
 **Question #2:**
 
 rep(c("A","B"), each = 2) and rep(c("A","B"), times = 2) both produce a vector of length 4, but with different element orders.
+
 - **Answer:** **each** and times differs from its function. each prints the every single thing inside the vector, while **times** prints the vector according to how many times on the code.
 
 **Question #3:**
 
 Compare seq(1, 20, by = 2) with seq(1, 20, length.out = 5). What does each argument (by vs length.out) control, and when would you use one over the other in a real analysis?
-- **Answer:** The first arguments jumps by 2 which prints out the odd numbers from 1 to 20, while the second argument 
 
-```{r}
-seq(1, 20, by = 2)
-seq(1, 20, length.out = 5)
-```
+- **Answer:** The first arguments jumps by 2 which prints out the odd numbers from 1 to 20, while the second argument prints the numbers between 1 to 20 with values evenly spaced out by 5
 
-
-
-Question #4:
+**Question #4:**
 
 Generate a sequence for 20 to 60. Name the vector as vec_num
-(Your answer here)
 
-
+- **Answer:** vec_num <- seq(20,60)
+[1] 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34
+[16] 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49
+[31] 50 51 52 53 54 55 56 57 58 59 60
 
 Get the mean for vec_num.
-(Your answer here)
 
-
+- **Answer:** mean(vec_num)
+[1] 40
 
 Get the sum for vec_num.
-(Your answer here)
 
-
+- **Answer:** sum(vec_num) [1] 1640
 
 d: How many data points are there in vec_num?
 
-(Your answer here)
+- **Answer:** length(vec_num)  [1] 41
 
