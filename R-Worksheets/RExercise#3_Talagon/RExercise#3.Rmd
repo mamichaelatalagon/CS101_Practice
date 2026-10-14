@@ -75,7 +75,7 @@ rep(c("A","B"), each = 2) and rep(c("A","B"), times = 2) both produce a vector o
 **Question #3:**
 
 Compare seq(1, 20, by = 2) with seq(1, 20, length.out = 5). What does each argument (by vs length.out) control, and when would you use one over the other in a real analysis?
-- **Answer:** 
+- **Answer:** The first arguments jumps by 2 which prints out the odd numbers from 1 to 20, while the second argument 
 
 ```{r}
 seq(1, 20, by = 2)
