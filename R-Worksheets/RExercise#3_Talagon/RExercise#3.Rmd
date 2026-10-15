@@ -299,4 +299,4 @@ Suppose a classmate stores related data as three separate, unconnected vectors (
 
 ## Conclusion
 
-- Vectors hold elements of the same value and data type, making them ideal for uniform mathematical calculation and sequences. While, list can contain large vectors and data frames, allowing bundles of multiple objects of different lengths and data types on the same object. When dealing with homogeneous dtaa of the same data type, a vector is suitable to use. List when there's a divere group of data like data frames. 
+- Vectors hold elements of the same value and data type, making them ideal for uniform mathematical calculation and sequences. While, list can contain large vectors and data frames, allowing bundles of multiple objects of different lengths and data types on the same object. When dealing with homogeneous dtaa of the same data type, a vector is suitable to use. List when there's a divere group of data like data frames.
